@@ -1,23 +1,14 @@
 {
   "name": "Ubuntu + XFCE + VNC + ngrok",
-  "image": "ubuntu:24.04",  
-
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",  
   "postCreateCommand": "./.devcontainer/init-vnc-ngrok.sh",
-
-  "forwardPorts": [
-    5901,
-    4040
-  ],
-
+  "forwardPorts": [5901, 4040],
   "remoteUser": "vncuser",
-
   "containerEnv": {
     "DISPLAY": ":1"
   },
-
   "mounts": [
     "source=${localWorkspaceFolder}/.devcontainer,target=/workspace/.devcontainer,type=bind,consistency=cached"
   ],
-
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
 }
