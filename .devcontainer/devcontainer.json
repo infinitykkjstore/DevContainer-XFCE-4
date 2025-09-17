@@ -3,7 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",  
   "postCreateCommand": "./.devcontainer/init-vnc-ngrok.sh",
   "forwardPorts": [5901, 4040],
-  "remoteUser": "vncuser",
+  "remoteUser": "root",
   "containerEnv": {
     "DISPLAY": ":1"
   },
