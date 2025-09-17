@@ -2,13 +2,6 @@
   "name": "Ubuntu + XFCE + VNC + ngrok",
   "image": "ubuntu:24.04",  
 
-  "features": {
-    "ghcr.io/devcontainers/features/ssh:1": {
-      "version": "latest",
-      "installOpenSSH": true
-    }
-  },
-
   "postCreateCommand": "./.devcontainer/init-vnc-ngrok.sh",
 
   "forwardPorts": [
