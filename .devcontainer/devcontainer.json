@@ -1,14 +1,16 @@
 {
-  "name": "Ubuntu + XFCE + VNC + ngrok",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",  
-  "postCreateCommand": "./.devcontainer/init-vnc-ngrok.sh",
-  "forwardPorts": [5901, 4040],
-  "remoteUser": "root",
-  "containerEnv": {
-    "DISPLAY": ":1"
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
   },
-  "mounts": [
-    "source=${localWorkspaceFolder}/.devcontainer,target=/workspace/.devcontainer,type=bind,consistency=cached"
-  ],
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "google.gemini-cli-vscode-ide-companion"
+      ]
+    }
+  },
+  "postCreateCommand": "sudo chmod +x ./init-vnc-ngrok.sh && sudo sh ./init-vnc-ngrok.sh"
 }
